@@ -35,7 +35,7 @@ func (c *ExperienceController) GetAll(ctx *gin.Context) {
 
 	experiences, totalItems, err := c.service.GetAll(page, limit)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, helpers.Error("Failed to retrieve experiences", err.Error()))
+		ctx.JSON(http.StatusInternalServerError, helpers.Error(http.StatusInternalServerError, "Failed to retrieve experiences", err.Error()))
 		return
 	}
 
@@ -48,92 +48,92 @@ func (c *ExperienceController) GetAll(ctx *gin.Context) {
 		TotalItems:  totalItems,
 	}
 
-	ctx.JSON(http.StatusOK, helpers.Pagination("Experiences retrieved successfully", experiences, meta))
+	ctx.JSON(http.StatusOK, helpers.Pagination(http.StatusOK, "Experiences retrieved successfully", experiences, meta))
 }
 
 func (c *ExperienceController) GetByID(ctx *gin.Context) {
 	idParam := ctx.Param("id")
 	id, err := strconv.ParseUint(idParam, 10, 32)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, helpers.Error("Invalid ID format", nil))
+		ctx.JSON(http.StatusBadRequest, helpers.Error(http.StatusBadRequest, "Invalid ID format", nil))
 		return
 	}
 
 	experience, err := c.service.GetByID(uint(id))
 	if err != nil {
-		ctx.JSON(http.StatusNotFound, helpers.Error("Experience not found", nil))
+		ctx.JSON(http.StatusNotFound, helpers.Error(http.StatusNotFound, "Experience not found", nil))
 		return
 	}
 
-	ctx.JSON(http.StatusOK, helpers.Success("Experience retrieved successfully", experience))
+	ctx.JSON(http.StatusOK, helpers.Success(http.StatusOK, "Experience retrieved successfully", experience))
 }
 
 func (c *ExperienceController) Create(ctx *gin.Context) {
 	var input models.Experience
 	if err := ctx.ShouldBindJSON(&input); err != nil {
-		ctx.JSON(http.StatusBadRequest, helpers.Error("Invalid input data", err.Error()))
+		ctx.JSON(http.StatusBadRequest, helpers.Error(http.StatusBadRequest, "Invalid input data", err.Error()))
 		return
 	}
 
 	if input.StartDate != nil && input.EndDate != nil {
 		if input.StartDate.After(*input.EndDate) {
-			ctx.JSON(http.StatusBadRequest, helpers.Error("start_date cannot be greater than end_date", nil))
+			ctx.JSON(http.StatusBadRequest, helpers.Error(http.StatusBadRequest, "start_date cannot be greater than end_date", nil))
 			return
 		}
 	}
 
 	experience, err := c.service.Create(input)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, helpers.Error("Failed to create experience", err.Error()))
+		ctx.JSON(http.StatusInternalServerError, helpers.Error(http.StatusInternalServerError, "Failed to create experience", err.Error()))
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, helpers.Success("Experience created successfully", experience))
+	ctx.JSON(http.StatusCreated, helpers.Success(http.StatusCreated, "Experience created successfully", experience))
 }
 
 func (c *ExperienceController) Update(ctx *gin.Context) {
 	idParam := ctx.Param("id")
 	id, err := strconv.ParseUint(idParam, 10, 32)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, helpers.Error("Invalid ID format", nil))
+		ctx.JSON(http.StatusBadRequest, helpers.Error(http.StatusBadRequest, "Invalid ID format", nil))
 		return
 	}
 
 	var input models.Experience
 	if err := ctx.ShouldBindJSON(&input); err != nil {
-		ctx.JSON(http.StatusBadRequest, helpers.Error("Invalid input data", err.Error()))
+		ctx.JSON(http.StatusBadRequest, helpers.Error(http.StatusBadRequest, "Invalid input data", err.Error()))
 		return
 	}
 
 	if input.StartDate != nil && input.EndDate != nil {
 		if input.StartDate.After(*input.EndDate) {
-			ctx.JSON(http.StatusBadRequest, helpers.Error("start_date cannot be greater than end_date", nil))
+			ctx.JSON(http.StatusBadRequest, helpers.Error(http.StatusBadRequest, "start_date cannot be greater than end_date", nil))
 			return
 		}
 	}
 
 	experience, err := c.service.Update(uint(id), input)
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, helpers.Error("Failed to update experience", err.Error()))
+		ctx.JSON(http.StatusInternalServerError, helpers.Error(http.StatusInternalServerError, "Failed to update experience", err.Error()))
 		return
 	}
 
-	ctx.JSON(http.StatusOK, helpers.Success("Experience updated successfully", experience))
+	ctx.JSON(http.StatusOK, helpers.Success(http.StatusOK, "Experience updated successfully", experience))
 }
 
 func (c *ExperienceController) Delete(ctx *gin.Context) {
 	idParam := ctx.Param("id")
 	id, err := strconv.ParseUint(idParam, 10, 32)
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, helpers.Error("Invalid ID format", nil))
+		ctx.JSON(http.StatusBadRequest, helpers.Error(http.StatusBadRequest, "Invalid ID format", nil))
 		return
 	}
 
 	err = c.service.Delete(uint(id))
 	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, helpers.Error("Failed to delete experience", err.Error()))
+		ctx.JSON(http.StatusInternalServerError, helpers.Error(http.StatusInternalServerError, "Failed to delete experience", err.Error()))
 		return
 	}
 
-	ctx.JSON(http.StatusOK, helpers.Success("Experience deleted successfully", nil))
+	ctx.JSON(http.StatusOK, helpers.Success(http.StatusOK, "Experience deleted successfully", nil))
 }

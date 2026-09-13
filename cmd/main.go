@@ -27,11 +27,15 @@ func main() {
 	experienceService := services.NewExperienceService(experienceRepo)
 	experienceController := controllers.NewExperienceController(experienceService)
 
+	userRepo := repositories.NewUserRepository(db)
+	authService := services.NewAuthService(userRepo)
+	authController := controllers.NewAuthController(authService)
+
 	// Setup Gin Router
 	router := gin.Default()
 
-	// Register Routes
-	routes.RegisterExperienceRoutes(router, experienceController)
+	// Setup all routes (prefix /api is handled inside this function)
+	routes.SetupRoutes(router, experienceController, authController)
 
 	// Get Port from .env
 	port := os.Getenv("APP_PORT")

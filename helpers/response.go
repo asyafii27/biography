@@ -1,6 +1,7 @@
 package helpers
 
 type Response struct {
+	Code    int         `json:"code"`
 	Success bool        `json:"success"`
 	Message string      `json:"message"`
 	Data    interface{} `json:"data,omitempty"`
@@ -15,6 +16,7 @@ type PaginationMeta struct {
 }
 
 type PaginationResponse struct {
+	Code    int            `json:"code"`
 	Success bool           `json:"success"`
 	Message string         `json:"message"`
 	Data    interface{}    `json:"data"`
@@ -22,8 +24,9 @@ type PaginationResponse struct {
 }
 
 // Success mengembalikan struktur JSON untuk response sukses
-func Success(message string, data interface{}) Response {
+func Success(code int, message string, data interface{}) Response {
 	return Response{
+		Code:    code,
 		Success: true,
 		Message: message,
 		Data:    data,
@@ -31,8 +34,9 @@ func Success(message string, data interface{}) Response {
 }
 
 // Error mengembalikan struktur JSON untuk response gagal
-func Error(message string, err interface{}) Response {
+func Error(code int, message string, err interface{}) Response {
 	return Response{
+		Code:    code,
 		Success: false,
 		Message: message,
 		Error:   err,
@@ -40,8 +44,9 @@ func Error(message string, err interface{}) Response {
 }
 
 // Pagination mengembalikan struktur JSON untuk response data dengan pagination
-func Pagination(message string, data interface{}, meta PaginationMeta) PaginationResponse {
+func Pagination(code int, message string, data interface{}, meta PaginationMeta) PaginationResponse {
 	return PaginationResponse{
+		Code:    code,
 		Success: true,
 		Message: message,
 		Data:    data,

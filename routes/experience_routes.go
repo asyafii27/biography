@@ -5,13 +5,13 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func RegisterExperienceRoutes(router *gin.Engine, controller *controllers.ExperienceController) {
-	api := router.Group("/api")
+func RegisterExperienceRoutes(routerGroup *gin.RouterGroup, controller *controllers.ExperienceController) {
+	expRoutes := routerGroup.Group("/experiences")
 	{
-		api.GET("/experiences", controller.GetAll)
-		api.GET("/experiences/:id", controller.GetByID)
-		api.POST("/experiences", controller.Create)
-		api.PUT("/experiences/:id", controller.Update)
-		api.DELETE("/experiences/:id", controller.Delete)
+		expRoutes.GET("", controller.GetAll)
+		expRoutes.GET("/:id", controller.GetByID)
+		expRoutes.POST("", controller.Create)
+		expRoutes.PUT("/:id", controller.Update)
+		expRoutes.DELETE("/:id", controller.Delete)
 	}
 }

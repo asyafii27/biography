@@ -7,7 +7,10 @@ import (
 )
 
 func Migrate() {
-	err := config.DB.AutoMigrate(&models.Experience{})
+	err := config.DB.AutoMigrate(
+		&models.Experience{},
+		&models.User{},
+	)
 	if err != nil {
 		log.Fatal("Failed to migrate database: ", err)
 	}
