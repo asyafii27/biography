@@ -11,6 +11,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -31,11 +32,18 @@ func main() {
 	authService := services.NewAuthService(userRepo)
 	authController := controllers.NewAuthController(authService)
 
+	biographyRepo := repositories.NewBiographyRepository(db)
+	biographyService := services.NewBiographyService(biographyRepo)
+	biographyController := controllers.NewBiographyController(biographyService)
+
 	// Setup Gin Router
 	router := gin.Default()
 
+	// Setup CORS
+	router.Use(cors.Default())
+
 	// Setup all routes (prefix /api is handled inside this function)
-	routes.SetupRoutes(router, experienceController, authController)
+	routes.SetupRoutes(router, experienceController, authController, biographyController)
 
 	// Get Port from .env
 	port := os.Getenv("APP_PORT")

@@ -7,11 +7,12 @@ import (
 )
 
 // SetupRoutes mengumpulkan semua konfigurasi routing dan prefix
-func SetupRoutes(router *gin.Engine, experienceController *controllers.ExperienceController, authController *controllers.AuthController) {
+func SetupRoutes(router *gin.Engine, experienceController *controllers.ExperienceController, authController *controllers.AuthController, biographyController *controllers.BiographyController) {
 	// Definisikan prefix utama /api di sini
 	apiGroup := router.Group("/api")
 
 	// Daftarkan route-route yang ada ke dalam grup /api
 	RegisterExperienceRoutes(apiGroup, experienceController)
 	RegisterAuthRoutes(apiGroup, authController)
+	RegisterBiographyRoutes(apiGroup, biographyController)
 }

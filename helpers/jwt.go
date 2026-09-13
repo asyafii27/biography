@@ -5,18 +5,21 @@ import (
 	"os"
 	"time"
 
+	"biography-api/models"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
 )
 
-func GenerateToken(userID uuid.UUID) (string, error) {
+func GenerateToken(user *models.User) (string, error) {
 	secret := os.Getenv("JWT_SECRET")
 	if secret == "" {
 		secret = "secret" // fallback for development
 	}
 
 	claims := jwt.MapClaims{
-		"user_id": userID.String(),
+		"user_id": user.ID.String(),
+		"name":    user.Name,
+		"email":   user.Email,
 		"exp":     time.Now().Add(time.Hour * 24).Unix(), // 1 day expiration
 	}
 

@@ -62,7 +62,7 @@ func (s *authService) Login(email, password string) (string, error) {
 		return "", errors.New("invalid credentials")
 	}
 
-	token, err := helpers.GenerateToken(user.ID)
+	token, err := helpers.GenerateToken(user)
 	if err != nil {
 		return "", err
 	}
