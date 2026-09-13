@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  api:
+    image: biography-api:latest
+    build: .
+    container_name: bio-api
+    ports:
+      - "8081:8081"
+    # Membaca nilai environment variables dari file .env lokal Anda
+    env_file:
+      - .env
+    # Jika database jalan di laptop lokal Anda (bukan di dalam docker),
+    # kita timpa DB_HOST agar docker bisa mengaksesnya.
+    environment:
+      - DB_HOST=host.docker.internal
+    restart: unless-stopped
