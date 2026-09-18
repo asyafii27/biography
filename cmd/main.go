@@ -36,6 +36,22 @@ func main() {
 	biographyService := services.NewBiographyService(biographyRepo)
 	biographyController := controllers.NewBiographyController(biographyService)
 
+	awardeeRepo := repositories.NewAwardeeRepository(db)
+	awardeeService := services.NewAwardeeService(awardeeRepo)
+	awardeeController := controllers.NewAwardeeController(awardeeService)
+
+	organizationRepo := repositories.NewOrganizationRepository(db)
+	organizationService := services.NewOrganizationService(organizationRepo)
+	organizationController := controllers.NewOrganizationController(organizationService)
+
+	skillRepo := repositories.NewSkillRepository(db)
+	skillService := services.NewSkillService(skillRepo)
+	skillController := controllers.NewSkillController(skillService)
+
+	technicalExperienceRepo := repositories.NewTechnicalExperienceRepository(db)
+	technicalExperienceService := services.NewTechnicalExperienceService(technicalExperienceRepo)
+	technicalExperienceController := controllers.NewTechnicalExperienceController(technicalExperienceService)
+
 	// Setup Gin Router
 	router := gin.Default()
 
@@ -43,7 +59,7 @@ func main() {
 	router.Use(cors.Default())
 
 	// Setup all routes (prefix /api is handled inside this function)
-	routes.SetupRoutes(router, experienceController, authController, biographyController)
+	routes.SetupRoutes(router, experienceController, authController, biographyController, awardeeController, organizationController, skillController, technicalExperienceController)
 
 	// Get Port from .env
 	port := os.Getenv("APP_PORT")

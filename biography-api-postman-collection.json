@@ -1,0 +1,639 @@
+{
+    "info": {
+        "name": "Biography API",
+        "description": "Postman Collection for Biography API Endpoints",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Experience",
+            "item": [
+                {
+                    "name": "Get All Experiences",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/experiences",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "experiences"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Experience By ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/experiences/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "experiences",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Experience",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"company\": \"PT. EKSA DIGITAL AGENCY\",\n    \"position\": \"Programmer\",\n    \"start_date\": \"2025-03-01T00:00:00Z\",\n    \"end_date\": \"2025-12-31T00:00:00Z\",\n    \"is_current\": true,\n    \"location\": \"Slawi, Indonesia\",\n    \"description\": \"Develop internal finance app with Laravel\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/experiences",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "experiences"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Experience",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"company\": \"PT. EKSA DIGITAL AGENCY\",\n    \"position\": \"Programmer\",\n    \"start_date\": \"2025-03-01T00:00:00Z\",\n    \"end_date\": \"2025-12-31T00:00:00Z\",\n    \"is_current\": true,\n    \"location\": \"Slawi, Indonesia\",\n    \"description\": \"Develop internal finance app with Laravel\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/experiences/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "experiences",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Experience",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/experiences/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "experiences",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Awardee",
+            "item": [
+                {
+                    "name": "Get All Awardees",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/awardees",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "awardees"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Awardee By ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/awardees/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "awardees",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Awardee",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Amil Zakat Infaq and Sedekah Institution\",\n    \"date\": \"2022-08-01T00:00:00Z\",\n    \"description\": \"LAZIS UNNES Awardee\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/awardees",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "awardees"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Awardee",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Amil Zakat Infaq and Sedekah Institution\",\n    \"date\": \"2022-08-01T00:00:00Z\",\n    \"description\": \"LAZIS UNNES Awardee\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/awardees/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "awardees",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Awardee",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/awardees/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "awardees",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Organization",
+            "item": [
+                {
+                    "name": "Get All Organizations",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/organizations",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "organizations"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Organization By ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/organizations/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "organizations",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Organization",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"role\": \"Head of Research Division\",\n    \"organization_name\": \"I-SECRET HIMA UNDERBOW\",\n    \"start_date\": \"2022-01-01T00:00:00Z\",\n    \"end_date\": \"2023-01-01T00:00:00Z\",\n    \"is_current\": false,\n    \"description\": \"Managed membership and event coordination\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/organizations",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "organizations"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Organization",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"role\": \"Head of Research Division\",\n    \"organization_name\": \"I-SECRET HIMA UNDERBOW\",\n    \"start_date\": \"2022-01-01T00:00:00Z\",\n    \"end_date\": \"2023-01-01T00:00:00Z\",\n    \"is_current\": false,\n    \"description\": \"Managed membership and event coordination\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/organizations/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "organizations",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Organization",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/organizations/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "organizations",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Skill",
+            "item": [
+                {
+                    "name": "Get All Skills",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/skills",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "skills"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Skill By ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/skills/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "skills",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Skill",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"category\": \"Back End Web Dev\",\n    \"description\": \"PHP, Laravel, CodeIgniter, RESTful API\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/skills",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "skills"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Skill",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"category\": \"Back End Web Dev\",\n    \"description\": \"PHP, Laravel, CodeIgniter, RESTful API\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/skills/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "skills",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Skill",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/skills/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "skills",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Technical Experience",
+            "item": [
+                {
+                    "name": "Get All Technical Experiences",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/technical-experiences",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "technical-experiences"
+                            ],
+                            "query": [
+                                {
+                                    "key": "page",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "limit",
+                                    "value": "10"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Technical Experience By ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/technical-experiences/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "technical-experiences",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Technical Experience",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Repositories\",\n    \"description\": \"https://github.com/asyafii27\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/technical-experiences",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "technical-experiences"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Technical Experience",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"title\": \"Repositories\",\n    \"description\": \"https://github.com/asyafii27\"\n}"
+                        },
+                        "url": {
+                            "raw": "http://localhost:8080/api/technical-experiences/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "technical-experiences",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Technical Experience",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:8080/api/technical-experiences/1",
+                            "host": [
+                                "localhost:8080"
+                            ],
+                            "path": [
+                                "api",
+                                "technical-experiences",
+                                "1"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}
