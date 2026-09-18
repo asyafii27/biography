@@ -28,13 +28,13 @@ func (r *biographyRepository) GetAll(page int, limit int) ([]models.Biography, i
 	offset := (page - 1) * limit
 
 	r.db.Model(&models.Biography{}).Count(&totalItems)
-	err := r.db.Offset(offset).Limit(limit).Find(&biographies).Error
+	err := r.db.Preload("Experiences").Preload("Awardees").Preload("Organizations").Preload("Skills").Preload("TechnicalExperiences").Offset(offset).Limit(limit).Find(&biographies).Error
 	return biographies, totalItems, err
 }
 
 func (r *biographyRepository) GetByID(id uint) (*models.Biography, error) {
 	var biography models.Biography
-	err := r.db.First(&biography, id).Error
+	err := r.db.Preload("Experiences").Preload("Awardees").Preload("Organizations").Preload("Skills").Preload("TechnicalExperiences").First(&biography, id).Error
 	if err != nil {
 		return nil, err
 	}

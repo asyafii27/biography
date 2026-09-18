@@ -6,6 +6,7 @@ import (
 
 type Organization struct {
 	ID               uint       `json:"id" gorm:"primaryKey"`
+	BiographyID uint      `json:"biography_id" gorm:"index;not null"`
 	Role             string     `json:"role"`
 	OrganizationName string     `json:"organization_name"`
 	StartDate        *time.Time `json:"start_date" gorm:"type:date"`

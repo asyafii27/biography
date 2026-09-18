@@ -8,9 +8,9 @@ import (
 
 func Migrate() {
 	err := config.DB.AutoMigrate(
-		&models.Experience{},
 		&models.User{},
 		&models.Biography{},
+		&models.Experience{},
 		&models.Awardee{},
 		&models.Organization{},
 		&models.Skill{},

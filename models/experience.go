@@ -6,6 +6,7 @@ import (
 
 type Experience struct {
 	ID          uint       `json:"id" gorm:"primaryKey"`
+	BiographyID uint      `json:"biography_id" gorm:"index;not null"`
 	Company     string     `json:"company"`
 	Position    string     `json:"position"`
 	StartDate   *time.Time `json:"start_date" gorm:"type:date"`
